@@ -1,0 +1,48 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Go: compiled binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Build output
+/bin/
+/dist/
+/build/
+
+# Go workspace
+go.work
+go.work.sum
+
+# IDE: VS Code
+.vscode/
+
+# IDE: JetBrains (GoLand / IntelliJ)
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Test coverage reports
+coverage.out
+coverage.html
