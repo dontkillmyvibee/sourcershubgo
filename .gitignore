@@ -46,3 +46,7 @@ go.work.sum
 # Test coverage reports
 coverage.out
 coverage.html
+
+/migrations
+/out
+/docs
