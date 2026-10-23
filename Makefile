@@ -12,7 +12,7 @@ env-down:
 env-cleanup:
 	@read -p "Точно ли Вы хотите удалить все данные из БД? [y/N]: " ans; \
 	if [ "$$ans" = "y" ]; then \
-	  docker compose down sourcershub-postgres && \
+	  docker compose down sourcershub-postgres port-forwarder && \
 	  rm -rf out/pgdata && \
 	  echo "БД очищена"; \
   	else \
@@ -53,3 +53,14 @@ migrate-up:
 
 migrate-down:
 	@make migrate-action action=down
+
+sourcershub-run:
+	@export LOGGER_FOLDER=${PROJECT_ROOT}/out/logs && \
+	export POSTGRES_HOST=localhost && \
+	go mod tidy && \
+	go run cmd/sourcers_hub/main.go
+
+clear-logs:
+	@test -n "$(PROJECT_ROOT)" || { echo "PROJECT_ROOT не задан!" >&2; exit 1; }
+	@rm -rf ${PROJECT_ROOT}/out/logs && \
+	echo "Логи успешно очищены!"
