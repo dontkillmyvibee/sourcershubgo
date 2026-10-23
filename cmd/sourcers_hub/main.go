@@ -46,8 +46,8 @@ func main() {
 		logger,
 		middleware.RequestID(),
 		middleware.Logger(logger),
-		middleware.Panic(),
 		middleware.Trace(),
+		middleware.Panic(),
 	)
 	apiVersionRouter := server.NewApiVersionRouter(server.ApiVersion1)
 	apiVersionRouter.RegisterRoutes(usersTransportHTTP.Routes()...)
